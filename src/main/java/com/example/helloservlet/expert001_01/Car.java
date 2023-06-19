@@ -3,9 +3,8 @@ package com.example.helloservlet.expert001_01;
 public class Car {
     Tire tire;
 
-    public Car() {
-        tire = new KoreaTire();
-        // tire = new AmericaTire();
+    public Car(Tire tire) {
+        this.tire = tire;
     }
 
     public String getTireBrand() {
