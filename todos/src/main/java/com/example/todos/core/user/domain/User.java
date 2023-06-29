@@ -11,7 +11,6 @@ public class User {
     @Id
     private String username;
     private String password;
-
     private ProfilePicture profilePicture;
 
     @SuppressWarnings("unused")
@@ -35,19 +34,52 @@ public class User {
         return profilePicture;
     }
 
-    public void setUsername(String username) {
+    private void setUsername(String username) {
         this.username = username;
     }
 
-    public void setPassword(String password) {
+    private void setPassword(String password) {
         this.password = password;
     }
 
-    public void setProfilePicture(ProfilePicture profilePicture) {
+    private void setProfilePicture(ProfilePicture profilePicture) {
         this.profilePicture = profilePicture;
     }
 
     public boolean hasProfilePicture() {
         return Objects.nonNull(profilePicture);
+    }
+
+    public User verifyPassword(String password) {
+        if (Objects.equals(getPassword(), password)) {
+            return this;
+        }
+        throw new UserPasswordNotMatchedException();
+    }
+
+    public User changeProfilePicture(ProfilePicture profilePicture) {
+        setProfilePicture(profilePicture);
+        return this;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        User user = (User) o;
+        return Objects.equals(username, user.username);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(username);
+    }
+
+    @Override
+    public String toString() {
+        final StringBuilder sb = new StringBuilder("User{");
+        sb.append("username='").append(username).append('\'');
+        sb.append('}');
+        return sb.toString();
     }
 }

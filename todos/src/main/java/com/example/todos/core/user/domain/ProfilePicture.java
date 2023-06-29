@@ -14,14 +14,14 @@ public class ProfilePicture {
     }
 
     public ProfilePicture(URI uri) {
-        this.uri = uri;
+        setUri(uri);
     }
 
     public URI getUri() {
         return uri;
     }
 
-    public void setUri(URI uri) {
+    private void setUri(URI uri) {
         this.uri = uri;
     }
 }
