@@ -2,7 +2,7 @@ package com.example.todos.web;
 
 import com.example.todos.web.model.SiteProperties;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
@@ -14,8 +14,12 @@ public class TodoController {
         this.siteProperties = siteProperties;
     }
 
+    @ModelAttribute("site")
+    public SiteProperties siteProperties() {
+        return siteProperties;
+    }
+
     @RequestMapping("/todos")
-    public void todos(Model model) throws Exception {
-        model.addAttribute("site", siteProperties);
+    public void todos() throws Exception {
     }
 }
