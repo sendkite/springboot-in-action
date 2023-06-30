@@ -3,9 +3,13 @@ package com.example.todos.core.todos.application;
 import com.example.todos.core.todos.domain.Todo;
 import com.example.todos.core.todos.domain.TodoEntityNotFoundException;
 import com.example.todos.core.todos.domain.TodoRepository;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
+@Service
+@Transactional
 public class TodoManager implements TodoFinder, TodoEditor {
 
     private final TodoRepository todoRepository;

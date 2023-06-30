@@ -10,3 +10,7 @@ spring:
     url: jdbc:h2:mem:todos;NON_KEYWORDS=USER
     username: sa
     password: sa
+
+site:
+  author: "송연"
+  description: "Spring Boot를 이용한 Todo List"
