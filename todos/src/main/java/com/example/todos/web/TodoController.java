@@ -15,8 +15,7 @@ public class TodoController {
     }
 
     @RequestMapping("/todos")
-    public String todos(Model model) throws Exception {
+    public void todos(Model model) throws Exception {
         model.addAttribute("site", siteProperties);
-        return "todos";
     }
 }
