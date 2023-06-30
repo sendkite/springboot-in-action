@@ -2,8 +2,8 @@ package com.example.todos.web;
 
 import com.example.todos.web.model.SiteProperties;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class TodoController {
@@ -15,11 +15,8 @@ public class TodoController {
     }
 
     @RequestMapping("/todos")
-    public ModelAndView todos() throws Exception {
-        ModelAndView mav = new ModelAndView();
-        mav.addObject("site", siteProperties);
-        mav.setViewName("todos");
-
-        return mav;
+    public String todos(Model model) throws Exception {
+        model.addAttribute("site", siteProperties);
+        return "todos";
     }
 }
