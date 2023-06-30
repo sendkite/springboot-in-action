@@ -4,6 +4,8 @@ import com.example.todos.Constant;
 import com.example.todos.core.user.domain.PasswordEncoder;
 import com.example.todos.core.user.domain.User;
 import com.example.todos.core.user.domain.UserRepository;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.context.annotation.Profile;
@@ -13,7 +15,6 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.concurrent.CopyOnWriteArrayList;
-import java.util.logging.Logger;
 
 @Profile(Constant.PROFILE_DEVELOPMENT)
 @Repository
@@ -21,7 +22,7 @@ public class InMemoryUserRepository implements UserRepository, ApplicationRunner
 
     private final PasswordEncoder passwordEncoder;
     private final List<User> users = new CopyOnWriteArrayList<>();
-    private final Logger log = Logger.getLogger(this.getClass().getName());
+    private final Logger log = LoggerFactory.getLogger(this.getClass());
 
     public InMemoryUserRepository(PasswordEncoder passwordEncoder) {
         this.passwordEncoder = passwordEncoder;
