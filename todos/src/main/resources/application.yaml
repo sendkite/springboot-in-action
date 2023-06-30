@@ -2,7 +2,7 @@ logging:
   level:
     com.example.todos: DEBUG
     org.springframework.beans: DEBUG
-    org.springframework.web: DEBUG
+    org.springframework.web: TRACE
 
 spring:
   datasource:
