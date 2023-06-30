@@ -1,5 +1,8 @@
 package com.example.todos.web.model;
 
+import org.springframework.boot.context.properties.ConfigurationProperties;
+
+@ConfigurationProperties(prefix = "site")
 public class SiteProperties {
 
     private String author = "unknown";
