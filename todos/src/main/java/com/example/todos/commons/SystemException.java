@@ -15,18 +15,24 @@ public class SystemException extends RuntimeException implements MessageSourceRe
     public SystemException(Throwable cause) {
         super(cause);
     }
+
+    public SystemException(String message, Throwable cause) {
+        super(message, cause);
+    }
+
     @Override
     public String[] getCodes() {
-        return new String[0];
+        return new String[] {"Exception." + getClass().getSimpleName()};
     }
 
     @Override
     public Object[] getArguments() {
-        return MessageSourceResolvable.super.getArguments();
+        return new Object[0];
     }
 
     @Override
     public String getDefaultMessage() {
-        return MessageSourceResolvable.super.getDefaultMessage();
+        return getMessage();
     }
+
 }

@@ -4,17 +4,27 @@ logging:
     org.springframework.beans: DEBUG
     org.springframework.web: TRACE
 
+server:
+  error:
+    include-message: always
+    include-binding-errors: always
+  servlet:
+    encoding:
+      charset: utf-8
+      force: true
+
 spring:
+  messages:
+    basename: messages
   datasource:
     driver-class-name: org.h2.Driver
     url: jdbc:h2:mem:todos;NON_KEYWORDS=USER
     username: sa
     password: sa
-
-site:
   author: "송연"
   description: "Spring Boot를 이용한 Todo List"
 
 todo:
   data:
     initialize: true
+

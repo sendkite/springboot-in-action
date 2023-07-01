@@ -1,6 +1,8 @@
 package com.example.todos.core.todos.domain;
 
-public class TodoEntityException extends RuntimeException {
+import com.example.todos.commons.SystemException;
+
+public class TodoEntityException extends SystemException {
 
     private static final long serialVersionUID = 1L;
 
